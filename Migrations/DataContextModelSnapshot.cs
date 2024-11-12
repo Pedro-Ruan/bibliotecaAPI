@@ -22,6 +22,32 @@ namespace bibliotecaAPI.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("bibliotecaAPI.Models.Alugar", b =>
+                {
+                    b.Property<int>("IdLivro")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdCliente")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ClienteId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("DataLivroAlugado")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("LivroId")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdLivro", "IdCliente");
+
+                    b.HasIndex("ClienteId");
+
+                    b.HasIndex("LivroId");
+
+                    b.ToTable("TB_LivrosAlugados", (string)null);
+                });
+
             modelBuilder.Entity("bibliotecaAPI.Models.Autor", b =>
                 {
                     b.Property<int>("Id")
@@ -34,7 +60,7 @@ namespace bibliotecaAPI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("DataNascimento")
+                    b.Property<DateTime?>("DataNascimento")
                         .HasColumnType("datetime2");
 
                     b.Property<double>("Latitude")
@@ -55,11 +81,67 @@ namespace bibliotecaAPI.Migrations
                         new
                         {
                             Id = 1,
-                            Cpf = "12345678900",
-                            DataNascimento = new DateTime(1965, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Cpf = "12345678910",
                             Latitude = 0.0,
                             Longitude = 0.0,
                             Nome = "J.K. Rowling"
+                        });
+                });
+
+            modelBuilder.Entity("bibliotecaAPI.Models.Cliente", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Cpf")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("DataNascimento")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Latitude")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Longitude")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("PasswordHash")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<byte[]>("PasswordSalt")
+                        .HasColumnType("varbinary(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TB_Cliente", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Cpf = "23456789101",
+                            Latitude = 0,
+                            Longitude = 0,
+                            Nome = "Pedro Ruan"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Cpf = "12345678917",
+                            Latitude = 0,
+                            Longitude = 0,
+                            Nome = "Maribode"
                         });
                 });
 
@@ -104,6 +186,25 @@ namespace bibliotecaAPI.Migrations
                             Preco = 50.0,
                             QtdPaginas = 365
                         });
+                });
+
+            modelBuilder.Entity("bibliotecaAPI.Models.Alugar", b =>
+                {
+                    b.HasOne("bibliotecaAPI.Models.Cliente", "Cliente")
+                        .WithMany()
+                        .HasForeignKey("ClienteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("bibliotecaAPI.Models.Livro", "Livro")
+                        .WithMany()
+                        .HasForeignKey("LivroId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cliente");
+
+                    b.Navigation("Livro");
                 });
 
             modelBuilder.Entity("bibliotecaAPI.Models.Livro", b =>

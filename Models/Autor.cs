@@ -12,7 +12,7 @@ namespace bibliotecaAPI.Models
         public string Cpf { get; set; }
         public double Longitude { get; set; }
         public double Latitude { get; set; }
-        public DateTime DataNascimento { get; set; }
+        public DateTime? DataNascimento { get; set; }
 
         public List<Livro> Livros { get; set; } = new List<Livro>();
 
