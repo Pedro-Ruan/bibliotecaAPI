@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pedro\\OneDrive\\Desktop\\Estudos_Etec\\bibliotecaAPI\\bibliotecaAPI.csproj": {}
+    "C:\\Users\\pedro\\OneDrive\\Desktop\\BIBLIOTECAAPI\\bibliotecaAPI\\bibliotecaAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pedro\\OneDrive\\Desktop\\Estudos_Etec\\bibliotecaAPI\\bibliotecaAPI.csproj": {
+    "C:\\Users\\pedro\\OneDrive\\Desktop\\BIBLIOTECAAPI\\bibliotecaAPI\\bibliotecaAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pedro\\OneDrive\\Desktop\\Estudos_Etec\\bibliotecaAPI\\bibliotecaAPI.csproj",
+        "projectUniqueName": "C:\\Users\\pedro\\OneDrive\\Desktop\\BIBLIOTECAAPI\\bibliotecaAPI\\bibliotecaAPI.csproj",
         "projectName": "bibliotecaAPI",
-        "projectPath": "C:\\Users\\pedro\\OneDrive\\Desktop\\Estudos_Etec\\bibliotecaAPI\\bibliotecaAPI.csproj",
+        "projectPath": "C:\\Users\\pedro\\OneDrive\\Desktop\\BIBLIOTECAAPI\\bibliotecaAPI\\bibliotecaAPI.csproj",
         "packagesPath": "C:\\Users\\pedro\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pedro\\OneDrive\\Desktop\\Estudos_Etec\\bibliotecaAPI\\obj\\",
+        "outputPath": "C:\\Users\\pedro\\OneDrive\\Desktop\\BIBLIOTECAAPI\\bibliotecaAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

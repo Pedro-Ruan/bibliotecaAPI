@@ -10,9 +10,7 @@ namespace bibliotecaAPI.Models
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Cpf { get; set; }
-        public double Longitude { get; set; }
-        public double Latitude { get; set; }
-        public DateTime? DataNascimento { get; set; }
+        public string Biografia { get; set; }
 
         public List<Livro> Livros { get; set; } = new List<Livro>();
 

@@ -12,18 +12,10 @@ namespace bibliotecaAPI.Models
        public int Id { get; set; }
         public string Nome { get; set; }
         public string Cpf { get; set; }
-        public int? Longitude { get; set; }
-        public int? Latitude { get; set; }
-        public int? DataNascimento { get; set; }
-        public string? Email { get; set; }
-         [JsonIgnore]
-        public byte[]? PasswordHash { get; set; }
-        [JsonIgnore]
-        public byte[]? PasswordSalt { get; set; }
+        public string Email { get; set; }
+        public string Telefone { get; set; }
 
-        [NotMapped]
-        public string? PassowordString { get; set; }
-
-
+        public List<Alugar> Alugar { get; set; } = new List<Alugar>();
+        
     }
 }
